@@ -60,7 +60,7 @@ class ViewController: UITableViewController {
         if isPossible(word: lowerAns) {
             if isOriginal(word: lowerAns) {
                 if isReal(word: lowerAns) {
-                    usedWords.insert(answer, at: 0 )
+                    usedWords.insert(lowerAns, at: 0 )
                     let indexpath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexpath], with: .automatic)
                     return
