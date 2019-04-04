@@ -14,6 +14,7 @@
 		8DFF97082255B23900DE3AAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DFF97062255B23900DE3AAE /* LaunchScreen.storyboard */; };
 		8DFF97132255B23900DE3AAE /* WordAnagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF97122255B23900DE3AAE /* WordAnagramTests.swift */; };
 		8DFF971E2255B23900DE3AAE /* WordAnagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF971D2255B23900DE3AAE /* WordAnagramUITests.swift */; };
+		8DFF972C2255B4E300DE3AAE /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DFF972B2255B4E300DE3AAE /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8DFF97192255B23900DE3AAE /* WordAnagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordAnagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFF971D2255B23900DE3AAE /* WordAnagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAnagramUITests.swift; sourceTree = "<group>"; };
 		8DFF971F2255B23900DE3AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DFF972B2255B4E300DE3AAE /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				8DFF97042255B23900DE3AAE /* Assets.xcassets */,
 				8DFF97062255B23900DE3AAE /* LaunchScreen.storyboard */,
 				8DFF97092255B23900DE3AAE /* Info.plist */,
+				8DFF972B2255B4E300DE3AAE /* start.txt */,
 			);
 			path = WordAnagram;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DFF97082255B23900DE3AAE /* LaunchScreen.storyboard in Resources */,
+				8DFF972C2255B4E300DE3AAE /* start.txt in Resources */,
 				8DFF97052255B23900DE3AAE /* Assets.xcassets in Resources */,
 				8DFF97032255B23700DE3AAE /* Main.storyboard in Resources */,
 			);
