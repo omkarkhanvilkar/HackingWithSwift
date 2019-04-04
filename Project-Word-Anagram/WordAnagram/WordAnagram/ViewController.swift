@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(startGame))
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
         
         if let startFileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
@@ -29,7 +31,7 @@ class ViewController: UITableViewController {
     }
 
     
-    func startGame()  {
+    @objc func startGame()  {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -53,15 +55,35 @@ class ViewController: UITableViewController {
     
     func submit(_ answer: String)  {
         let lowerAns = answer.lowercased()
+        let eTitle: String
+        let eMessage: String
         if isPossible(word: lowerAns) {
             if isOriginal(word: lowerAns) {
                 if isReal(word: lowerAns) {
                     usedWords.insert(answer, at: 0 )
                     let indexpath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexpath], with: .automatic)
+                    return
+                } else {
+                    eTitle = "Not a real word"
+                    eMessage = "You can't just make things up!"
                 }
+            }else {
+                eTitle = "Word already used"
+                eMessage = "Be more original"
             }
+        }else {
+            guard let title = title else {return}
+            eTitle = "Word not possible"
+            eMessage = "You can't spell that from \(title.lowercased())"
         }
+        showErrorMessage(title: eTitle, message: eMessage)
+    }
+    
+    func showErrorMessage(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     func isPossible(word: String) -> Bool {
@@ -83,6 +105,9 @@ class ViewController: UITableViewController {
     }
     
     func isReal(word: String) -> Bool {
+        
+        if word.count < 3 || word == title { return false }
+        
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspellRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
